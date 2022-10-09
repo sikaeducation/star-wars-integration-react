@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Star Wars API Integration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The [Star Wars API](https://swapi.dev/) is an API containing information about many aspects of Star Wars. In particular, `https://swapi.dev/api/films` contains a list of the first 7 Star Wars movies that looks like this:
 
-## Available Scripts
+```json
+{
+  "count": 6,
+  "next": null,
+  "previous": null,
+  "results": [{
+    "title": "A New Hope",
+    "episode_id": 4,
+    "opening_crawl": "It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire's\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire's\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy....",
+    "director": "George Lucas",
+    "producer": "Gary Kurtz, Rick McCallum",
+    "release_date": "1977-05-25",
+    "characters": [
+      "https://swapi.dev/api/people/1/",
+      "https://swapi.dev/api/people/2/",
+      "https://swapi.dev/api/people/3/",
+      "https://swapi.dev/api/people/4/",
+      "https://swapi.dev/api/people/5/",
+      "https://swapi.dev/api/people/6/",
+      "https://swapi.dev/api/people/7/",
+      "https://swapi.dev/api/people/8/",
+      "https://swapi.dev/api/people/9/",
+      "https://swapi.dev/api/people/10/",
+      "https://swapi.dev/api/people/12/",
+      "https://swapi.dev/api/people/13/",
+      "https://swapi.dev/api/people/14/",
+      "https://swapi.dev/api/people/15/",
+      "https://swapi.dev/api/people/16/",
+      "https://swapi.dev/api/people/18/",
+      "https://swapi.dev/api/people/19/",
+      "https://swapi.dev/api/people/81/"
+    ],
+    "planets": [],
+    "starships": [],
+    "vehicles": [],
+    "species": [],
+    "created": "2014-12-10T14:23:31.880000Z",
+    "edited": "2014-12-20T19:49:45.256000Z",
+    "url": "https://swapi.dev/api/films/1/"
+  }]
+}
+```
 
-In the project directory, you can run:
+Meanwhile, `https://swapi.dev/api/people/:id` contains details about specific characters. For example, `https://swapi.dev/api/people/1` returns details about Luke Skywalker:
 
-### `npm start`
+```json
+{
+  "name": "Luke Skywalker",
+  "height": "172",
+  "mass": "77",
+  "hair_color": "blond",
+  "skin_color": "fair",
+  "eye_color": "blue",
+  "birth_year": "19BBY",
+  "gender": "male",
+  "homeworld": "https://swapi.dev/api/planets/1/",
+  "films": [
+    "https://swapi.dev/api/films/2/",
+    "https://swapi.dev/api/films/6/",
+    "https://swapi.dev/api/films/3/",
+    "https://swapi.dev/api/films/1/",
+    "https://swapi.dev/api/films/7/"
+  ],
+  "species": [],
+  "vehicles": [],
+  "starships": [],
+  "created": "2014-12-09T13:50:51.644000Z",
+  "edited": "2014-12-20T21:17:56.891000Z",
+  "url": "https://swapi.dev/api/people/1/"
+}
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Your task is to use these two endpoints to display a list of each movie as well and the names of its characters. Note that this will require a sequence of requests. If you do it correctly it will look like this:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Star Wars films with their characters listed](https://ik.imagekit.io/sikaeducation/star-wars-api-integration/star-wars-api-integration-1_2IRDBQm-4.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665352265887&fr=w-1000)
