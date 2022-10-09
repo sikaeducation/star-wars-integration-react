@@ -77,3 +77,5 @@ Meanwhile, `https://swapi.dev/api/people/:id` contains details about specific ch
 Your task is to use these two endpoints to display a list of each movie as well and the names of its characters. Note that this will require a sequence of requests. If you do it correctly it will look like this:
 
 ![Star Wars films with their characters listed](https://ik.imagekit.io/sikaeducation/star-wars-api-integration/star-wars-api-integration-1_2IRDBQm-4.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665352265887&fr=w-1000)
+
+Make sure to handle errors and display loading messages.
